@@ -22,16 +22,16 @@ values
 
 insert into Clothings(Name, Price, TypeId, CategoryId, SizeId)
 values
-('Black and white', 1250, 1, 1, 2),
-('Dealeron T-shirt', 1999, 1, 1, 2),
-('Pikachu t-shirt ', 2500, 1, 1, 2),
-('Kimetsu no Yaiba', 500, 1, 1, 2),
-('THE LAST OF US ellie t-shirt', 1690, 1, 1, 2),
-('Space blouse', 1250, 2, 1, 2),
-('Doberman in a blouse', 3000, 2, 1, 2),
-('Snow', 2999, 3, 1, 2),
-('Ripped jeans', 5000, 3, 1, 2),
-('Tom and Jerry', 999, 3, 1, 2);
+('Black and white', 1250, 1, 3, 5),
+('Dealeron T-shirt', 1999, 1, 2, 2),
+('Pikachu t-shirt ', 2500, 1, 1, 1),
+('Kimetsu no Yaiba', 500, 1, 1, 1),
+('THE LAST OF US ellie t-shirt', 1690, 1, 2, 2),
+('Space blouse', 1250, 2, 3, 2),
+('Doberman in a blouse', 3000, 2, 3, 5),
+('Snow', 2999, 3, 3, 4),
+('Ripped jeans', 5000, 3, 2, 4),
+('Tom and Jerry', 999, 3, 1, 3);
 
 insert into Images(Url, ClothingId)
 values
