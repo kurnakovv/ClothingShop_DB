@@ -1,10 +1,11 @@
 use ClothingShop;
 
-declare @discount float = 0.5;
+declare @discount int = 10;
+declare @coefficientDiscount float = 1 - ((@discount * 0.1) / (100 * 0.1));
 
 select 
 	Name,
 	Price OldPrice,
-	Price * @discount NewPrice
+	Price * @coefficientDiscount NewPrice
 from Clothings c
 where c.CategoryId = 1;
