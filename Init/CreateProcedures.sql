@@ -23,7 +23,9 @@ end;
 
 go
 
-create proc GetClothesByTypes as 
+create proc GetClothesByTypes
+	@typeId int
+as 
 begin
 	select 
 		c.Name,
@@ -31,23 +33,7 @@ begin
 		ct.Name Type
 	from Clothings c
 		left join ClothingTypes ct on c.TypeId = ct.Id
-	where c.TypeId = 1;
-
-	select 
-		c.Name,
-		c.Price,
-		ct.Name Type
-	from Clothings c
-		left join ClothingTypes ct on c.TypeId = ct.Id
-	where c.TypeId = 2;
-
-	select 
-		c.Name,
-		c.Price,
-		ct.Name Type
-	from Clothings c
-		left join ClothingTypes ct on c.TypeId = ct.Id
-	where c.TypeId = 3;
+	where c.TypeId = @typeId;
 end;
 
 go
@@ -85,14 +71,16 @@ end;
 
 go
 
-create proc SetDiscount as 
+create proc SetDiscount
+	@discount int
+as 
 begin
-	declare @discount float = 0.5;
+	declare @coefficientDiscount float = 1 - ((@discount * 0.1) / (100 * 0.1));
 
 	select 
 		Name,
 		Price OldPrice,
-		Price * @discount NewPrice
+		Price * @coefficientDiscount NewPrice
 	from Clothings c
 	where c.CategoryId = 1;
 end;
