@@ -86,3 +86,14 @@ create table BasketClothings
 
 create index IX_BasketClothings_BasketId on BasketClothings (BasketId);
 create index IX_BasketClothings_ClothingId on BasketClothings (ClothingId);
+
+create table ClothingCoupons
+(
+	Id int not null identity,
+	CustomerId int not null,
+	Percentage int not null,
+	primary key (Id),
+	foreign key(CustomerId) references Customers (Id),
+);
+
+create index IX_ClothingCoupons_CustomerId on ClothingCoupons (CustomerId);

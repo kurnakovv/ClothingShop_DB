@@ -101,3 +101,34 @@ begin
 	from Clothings c
 	order by c.Price desc;
 end;
+
+go
+
+use ClothingShop;
+go
+
+create proc AddCoupon
+	@clothingId int,
+	@customerId int
+as
+begin
+	declare @basketId int;
+	declare @percentage int = 10;
+
+	insert into Baskets
+	(CustomerId)
+	values
+	(@customerId)
+
+	set @basketId = SCOPE_IDENTITY();
+	
+	insert into BasketClothings
+	(BasketId, ClothingId)
+	values
+	(@basketId, @clothingId)
+
+	insert into ClothingCoupons
+	(CustomerId, Percentage)
+	values
+	(@customerId, @percentage)
+end;
